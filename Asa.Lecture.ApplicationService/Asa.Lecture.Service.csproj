@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Asa.Lecture.Domain\Asa.Lecture.Domain.csproj" />
+    <ProjectReference Include="..\Asa.Lecture.Infra\Asa.Lecture.Infra.csproj" />
+  </ItemGroup>
+
+</Project>
