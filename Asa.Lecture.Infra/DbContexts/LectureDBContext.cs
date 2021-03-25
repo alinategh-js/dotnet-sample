@@ -18,8 +18,11 @@ namespace Asa.Lecture.Infra.DbContexts
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<StudentLesson>().HasKey(sc => new { sc.StudentId, sc.LessonId });
         }
 
         public DbSet<Student> Student { get; set; }
+        public DbSet<Lesson> Lesson { get; set; }
+        public DbSet<StudentLesson> StudentLesson { get; set; }
     }
 }

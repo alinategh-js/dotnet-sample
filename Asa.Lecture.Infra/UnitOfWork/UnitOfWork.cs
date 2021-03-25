@@ -11,11 +11,12 @@ namespace Asa.Lecture.Infra.UnitOfWork
     {
         private readonly LectureDBContext _context; // all repositories will use the same instace of context
 
-        public UnitOfWork(LectureDBContext context)
+        public UnitOfWork(LectureDBContext context, IStudentRepository studentRepository) // dependency injection
         {
             _context = context;
+            StudentRepository = studentRepository; 
         }
-        public IStudentRepository StudentRepository => new StudentRepository(_context);
+        public IStudentRepository StudentRepository { get; }//=> new StudentRepository(_context);
 
         public bool SaveChanges()
         {

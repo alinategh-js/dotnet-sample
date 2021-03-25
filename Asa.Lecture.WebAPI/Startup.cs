@@ -15,6 +15,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Asa.Lecture.Infra.UnitOfWork;
+using Asa.Lecture.Infra.Repositories.Interfaces;
+using Asa.Lecture.Infra.Repositories.Implements;
 
 namespace Asa.Lecture.WebAPI
 {
@@ -39,6 +41,8 @@ namespace Asa.Lecture.WebAPI
             // TODO: Implement IoC Container for all the dependencies.
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IStudentService, StudentService>();
+
+            services.AddScoped<IStudentRepository, StudentRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
