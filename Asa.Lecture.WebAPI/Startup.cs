@@ -14,6 +14,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Asa.Lecture.Infra.UnitOfWork;
 
 namespace Asa.Lecture.WebAPI
 {
@@ -36,6 +37,7 @@ namespace Asa.Lecture.WebAPI
             services.AddControllers();
 
             // TODO: Implement IoC Container for all the dependencies.
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IStudentService, StudentService>();
         }
 

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Asa.Lecture.Infra.Repositories.Implements
 {
@@ -20,34 +21,35 @@ namespace Asa.Lecture.Infra.Repositories.Implements
                 new Student{Id = 3, FirstName = "Jafar", LastName = "Jafari"}
             };
         }
-        public Student Add(Student student)
+        public Task<Student> Add(Student student)
         {
             student.Id = _studentList.Max(s => s.Id) + 1;
             _studentList.Add(student);
-            return student;
+            return Task.FromResult(student);
         }
 
-        public Student Delete(int id)
+        public Task<Student> Delete(int id)
         {
             var student = _studentList.FirstOrDefault(s => s.Id == id);
             if(student != null)
             {
                 _studentList.Remove(student);
             }
-            return student;
+            return Task.FromResult(student);
         }
 
-        public Student Get(int id)
+        public Task<Student> Get(int id)
         {
-            return _studentList.FirstOrDefault(s => s.Id == id);
+            return Task.FromResult(_studentList.FirstOrDefault(s => s.Id == id));
         }
 
-        public IEnumerable<Student> GetAll()
+        public async Task<IEnumerable<Student>> GetAll()
         {
-            return _studentList;
+            var students = await Task.FromResult(_studentList);
+            return students;
         }
 
-        public Student Update(Student studentChanges)
+        public Task<Student> Update(Student studentChanges)
         {
             var student = _studentList.FirstOrDefault(s => s.Id == studentChanges.Id);
             if (student != null)
@@ -55,7 +57,7 @@ namespace Asa.Lecture.Infra.Repositories.Implements
                 student.FirstName = studentChanges.FirstName;
                 student.LastName = studentChanges.LastName;
             }
-            return student;
+            return Task.FromResult(student);
         }
     }
 }

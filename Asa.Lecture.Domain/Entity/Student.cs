@@ -7,6 +7,7 @@ namespace Asa.Lecture.Domain.Entity
 {
     public class Student
     {
+        [Key]
         public int Id { get; set; }
         [Required]
         [MaxLength(20, ErrorMessage = "First Name cannot exceed 20 characters.")]

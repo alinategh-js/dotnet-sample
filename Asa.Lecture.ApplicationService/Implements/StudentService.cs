@@ -4,35 +4,49 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using Asa.Lecture.Infra.UnitOfWork;
 
 namespace Asa.Lecture.Service.Implements
 {
     public class StudentService : IStudentService
     {
-        public Student Add(Student student)
+        private readonly IUnitOfWork _uow;
+
+        public StudentService(IUnitOfWork uow)
         {
-            throw new NotImplementedException();
+            _uow = uow;
+        }
+        public async Task<Student> Add(Student student)
+        {
+            var newStudent = await _uow.StudentRepository.Add(student);
+            _uow.SaveChanges();
+            return newStudent;
         }
 
-        public IEnumerable<Student> GetAll()
+        public async Task<IEnumerable<Student>> GetAll()
         {
-            throw new NotImplementedException();
+            var students = await _uow.StudentRepository.GetAll();
+            return students;
         }
 
-        public Student Get(int id)
+        public async Task<Student> Get(int id)
         {
-            var student = new Student { FirstName = "Ali", Id = 1, LastName = "Nategh" };
+            var student = await _uow.StudentRepository.Get(id);
             return student;
         }
 
-        public Student Update(Student studentChanges)
+        public async Task<Student> Update(Student studentChanges)
         {
-            throw new NotImplementedException();
+            var student = await _uow.StudentRepository.Update(studentChanges);
+            _uow.SaveChanges();
+            return student;
         }
 
-        public Student Delete(int id)
+        public async Task<Student> Delete(int id)
         {
-            throw new NotImplementedException();
+            var student = await _uow.StudentRepository.Delete(id);
+            _uow.SaveChanges();
+            return student;
         }
     }
 }

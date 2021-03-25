@@ -8,10 +8,10 @@ namespace Asa.Lecture.Service.Interfaces
 {
     public interface IStudentService
     {
-        Student Add(Student student);
-        Student Get(int id);
-        IEnumerable<Student> GetAll();
-        Student Update(Student studentChanges);
-        Student Delete(int id);
+        Task<Student> Add(Student student);
+        Task<Student> Get(int id);
+        Task<IEnumerable<Student>> GetAll();
+        Task<Student> Update(Student studentChanges);
+        Task<Student> Delete(int id);
     }
 }

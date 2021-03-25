@@ -2,15 +2,16 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Asa.Lecture.Infra.Repositories.Interfaces
 {
     public interface IStudentRepository
     {
-        Student Get(int id);
-        IEnumerable<Student> GetAll();
-        Student Add(Student student);
-        Student Update(Student studentChanges);
-        Student Delete(int id);
+        Task<Student> Get(int id);
+        Task<IEnumerable<Student>> GetAll();
+        Task<Student> Add(Student student);
+        Task<Student> Update(Student studentChanges);
+        Task<Student> Delete(int id);
     }
 }
