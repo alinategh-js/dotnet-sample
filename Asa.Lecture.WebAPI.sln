@@ -9,7 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Asa.Lecture.Service", "Asa.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Asa.Lecture.Infra", "Asa.Lecture.Infra\Asa.Lecture.Infra.csproj", "{2C85EF5A-8FFF-4C45-AE95-07F963395C40}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asa.Lecture.Domain", "Asa.Lecture.Domain\Asa.Lecture.Domain.csproj", "{71E6B44A-1FA0-4F56-952E-6A51FC2C36DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Asa.Lecture.Domain", "Asa.Lecture.Domain\Asa.Lecture.Domain.csproj", "{71E6B44A-1FA0-4F56-952E-6A51FC2C36DB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Endpoints", "3 - Endpoints", "{5169D13C-B434-4BFC-A892-C5BD107E085C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Core", "1 - Core", "{6EE18F08-08D0-4174-A564-2B9385A5EE6A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application Service", "2 - Application Service", "{5A4F9287-8457-4CB7-B018-F22CB5833762}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,6 +42,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6213A8D0-707C-49BA-8F01-90DE965BD111} = {5169D13C-B434-4BFC-A892-C5BD107E085C}
+		{299A5ADF-BF66-4C67-BC57-CBF4CFC8C716} = {5A4F9287-8457-4CB7-B018-F22CB5833762}
+		{2C85EF5A-8FFF-4C45-AE95-07F963395C40} = {6EE18F08-08D0-4174-A564-2B9385A5EE6A}
+		{71E6B44A-1FA0-4F56-952E-6A51FC2C36DB} = {6EE18F08-08D0-4174-A564-2B9385A5EE6A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B35F836C-71F7-458B-817D-8F5288FC76FE}

@@ -16,7 +16,12 @@ namespace Asa.Lecture.Infra.Repositories.Implements
         
         public IEnumerable<Student> GetByFirstName(string firstName)
         {
-            return _context.Student.Where(s => s.FirstName == firstName);
+            var students = _context.Student
+                .Where(s => s.FirstName == firstName)
+                .OrderBy(x => x.Id)
+                .ToList();
+
+            return students;
         }
     }
 }
